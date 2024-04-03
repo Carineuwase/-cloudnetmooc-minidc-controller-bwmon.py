@@ -76,7 +76,6 @@ Useful OFPortStats class functions/properties:
      OFPortStats.port_no - the port number for the statistic
      OFPortStats.rx_bytes - the number of received bytes from port_no
      OFPortStats.tx_bytes - the number of transmitted bytes from port_no
-'''
 
 class BandwidthMonitor(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
