@@ -19,6 +19,8 @@ cfgfile = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__
 STAT_REQUEST_PERIOD = 5
 
 
+
+
     Topology.hosts - a dictionary of Host objects keyed on host name
     Topology.switches - a list of switch names
     Topology.coreSwitches - dictionary of CoreSwitch objects keyed on
