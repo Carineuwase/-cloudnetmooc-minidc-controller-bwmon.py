@@ -18,65 +18,6 @@ cfgfile = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__
 
 STAT_REQUEST_PERIOD = 5
 
-
-
-
-    Topology.hosts - a dictionary of Host objects keyed on host name
-    Topology.switches - a list of switch names
-    Topology.coreSwitches - dictionary of CoreSwitch objects keyed on
-                        switch name
-    Topology.edgeSwitches - dictionary of EdgeSwitch objects keyed on
-                        switch name
-    Topology.vlans - dictionary of vlan members, keyed on the vlan id (an integer)
-    Topology.ports[sw][inNode] - returns the port number on switch sw connected to
-                             the adjacent node inNode, if inNode is a node name
-                             (ie, switch or host).  If inNode is a number, returns
-                             the node or switch name on that port on switch sw.
-    Topology.getVlanCore(vlanId) - returns the core switch pre-assigned for the
-                               vlan vlanId
-    Topology.dpidToName(dpid) - returns the switch name associated with the
-                                specified dpid
-
-
-Useful CoreSwitch class functions/properties:
-
-    CoreSwitch.name - the name of the switch (eg, 's101')
-    CoreSwitch.dpid - the dpid of the switch (eg, 101)
-    CoreSwitch.vlans - list of pre-assigned vlans for the switch to handle
-
-
-Useful EdgeSwitch class functions/properties:
-
-    EdgeSwitch.name - the name of the switch (eg, 's101')
-    EdgeSwitch.dpid - the dpid of the switch (eg, 101)
-    EdgeSwitch.neighbors - list of hosts' names (eg, 'h6') attached to
-                           the switch
-
-
-Useful Host class functions/properties:
-
-    Host.name - the name of the host (eg, 'h6')
-    Host.eth - the MAC address of the host
-    Host.switch - the switch to which the host is connected
-    Host.vlans - a list of vlans with which the host is associated
-
-
-Use BandwidthStats class functions/properties:
-
-    BandwidthStats.addHostBwStat(hostname, txbytes, rxbytes) - log transmitted
-                        and received bytes for the specified host
-    BandwidthStats.hostBwString() - returns pretty-printed string for bandwidth
-                        usage (transmitted and received bytes) by host
-    BandwidthStats.tenantBwString() - returns pretty-printed string for
-                        bandwidth usage (transmitted and received) by tenant
-
-
-Useful OFPortStats class functions/properties:
-
-     OFPortStats.port_no - the port number for the statistic
-     OFPortStats.rx_bytes - the number of received bytes from port_no
-     OFPortStats.tx_bytes - the number of transmitted bytes from port_no
-
 class BandwidthMonitor(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
     _CONTEXTS = {
